@@ -8,22 +8,20 @@
  
 foldername = '/home/data/eck325/USbTe/2021dec_data/USbTe_1/LPolar/';
 %% Import the LP data 
-filenames = {'LP7_98LH.itx'}; %{'LP15_98LH2.itx'};%{'LP11_98LH2.itx'};
+filenames = {'LP7_98LH.itx'}; 
                 combine_LH_and_LV = 1; 
-                % To combine LH,LV scans, run LV first, assign ILV = I.
-                % Then set this to 1 and run with LH data 
+                % To combine LH,LV scans, set this to 0, run LV first and assign ILV = I.
+                % Then set this to 1 and run with LH itx data 
                 
 %%%%%%% Adjust the geometry angles/energies here %%%%%%%%%%%%%%%%%%%
 % list of filename IDs and azi0,tilt0,pol0,FL_shift 
 % Build up the parameter table as you go. Play with geometry values and
 % look at plots, store them as you find them. 
-params = table('Size',[1,6],'VariableNames',["ID","hv","azi0","tilt0","pol0","FLshift"],'VariableTypes',["string","double","double","double","double","double"]);
+params = table('Size',[1,6],...
+          'VariableNames',["ID","hv","azi0","tilt0","pol0","FLshift"],...
+          'VariableTypes',["string","double","double","double","double","double"]);
 params(1,:)     = {'LP7',98,  -0.4, -0.45, 1.0, 0};
 params(end+1,:) = {'LP8',98,  -0.4, -0.65, 1.0, 0};
-params(end+1,:) = {'LP9',112,  0.0, -0.50, 0.5, 0.003};
-params(end+1,:) = {'LP10',112, 0.0, -0.50, 0.5, 0.003};
-params(end+1,:) = {'LP15',98,  1.0,  0.00, 0.5, 0};
-params(end+1,:) = {'LP17',112, 1.0,  0.00, 0.5, 0};
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 KyCuts = [0.76, 0.255, 0, -0.68, -1.45]; 
